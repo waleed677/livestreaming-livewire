@@ -72,18 +72,23 @@
 
 <div class="row m-3">
     <div class="col-md-12">
-    <form id="keywordForm" method="POST" action="{{url('youtube')}}">
-        @csrf
-        <div class="input-group mb-3">
-            <input type="text" name="search" class="form-control input-lg" placeholder="Youtube Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <input class="btn btn-primary" type="submit" value="Search" name="submit">
-            </div>
-          </div>
 
-          <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/WPrBRxG_nIU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="input-group mb-3">
+
+            <input wire:model.debounce.500ms='search' type="text" name="search" class="form-control input-lg" placeholder="Youtube Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-danger" wire:click="searchVideo()">Search</button>
+            </div>
+
           </div>
+          @error('search') <span class="text-danger error">{{ $message }}</span>@enderror
+          {{-- {{ $video }}
+                @foreach($video as $videos)
+        <p>hello</p>
+                @endforeach --}}
+          {{-- <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WPrBRxG_nIU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div> --}}
     </div>
 </div>
     </div>

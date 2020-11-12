@@ -5,7 +5,7 @@
             <input type="checkbox" checked>
             <span class="slider round"></span>
           </label> --}}
-          <button class="btn btn-danger" wire:click="toggle">Switch Section</button>
+          <button class="btn btn-danger" wire:click="toggle()">Switch Section</button>
 
     </div>
 </div>
